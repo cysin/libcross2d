@@ -20,7 +20,7 @@ MessageBox::MessageBox(const c2d::FloatRect &rect, c2d::Input *ipt,
 
     message = new Text("MESSAGE", fontSize, font);
     message->setPosition(16 * ratio, (float) fontSize + (64 * ratio));
-    message->setSizeMax(rect.width - (float) fontSize * 2, rect.height * 0.6f);
+    message->setSizeMax(rect.width - (float) fontSize * 2, rect.height * 0.45f);
     message->setLineSpacingModifier(6 * ratio);
     message->setOverflow(Text::Overflow::NewLine);
     message->setOutlineColor(Color::Black);
@@ -218,5 +218,5 @@ void MessageBox::setSize(float width, float height) {
     title->setSizeMax(width - fontSize * 2, fontSize + 4);
 
     fontSize = (float) message->getCharacterSize();
-    message->setSizeMax(width - fontSize * 2, height * 0.6f);
+    message->setSizeMax(width - fontSize * 2, height * 0.45f);
 }

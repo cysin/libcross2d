@@ -122,6 +122,7 @@ if (PLATFORM_VITA)
             COMMAND ${CMAKE_COMMAND} -D SRC=${CMAKE_CURRENT_BINARY_DIR}/data_romfs -D DST=${CMAKE_CURRENT_BINARY_DIR}/vpk -P ${CMAKE_CURRENT_LIST_DIR}/copy_custom.cmake
             COMMAND ${CMAKE_COMMAND} -E copy eboot.bin ${CMAKE_CURRENT_BINARY_DIR}/vpk/eboot.bin
             COMMAND ${VITASDK}/bin/vita-mksfoex -s "TITLE_ID=${TITLE_ID}" -s "APP_VER=0${VERSION_MAJOR}.${VERSION_MINOR}0" -d "ATTRIBUTE2=12" "${PROJECT_NAME}" ${CMAKE_CURRENT_BINARY_DIR}/vpk/sce_sys/param.sfo
+            COMMAND ${CMAKE_COMMAND} -E remove -f ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.vpk
             COMMAND cd ${CMAKE_CURRENT_BINARY_DIR}/vpk && ${ZIP} -r ../${PROJECT_NAME}.vpk .
     )
     add_custom_target(${PROJECT_NAME}_${TARGET_PLATFORM}_release
